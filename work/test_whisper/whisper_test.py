@@ -19,4 +19,3 @@ result = model.transcribe(str(audio_path), language="bg", task="transcribe", bea
 print("\n--- TRANSCRIPTION ---")
 print(result["text"])
 
-
