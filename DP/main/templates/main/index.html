@@ -4,17 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inner Peace - Mindfulness & Mental Wellness</title>
+    <title>Генератор на субтитри</title>
     <link href="{% static 'tooplate-inner-peace.css' %}" rel="stylesheet">
-    <!--
-
-    Tooplate 2143 Inner Peace
-
-    https://www.tooplate.com/view/2143-inner-peace
-
-    Free HTML CSS Template
-
-    -->
 </head>
 <body>
     <div class="geometric-bg"></div>
@@ -44,62 +35,57 @@
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#hero" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#hero" class="nav-link active">Начало</a></li>
+                <li><a href="#subtitle-tool" class="nav-link">Генератор</a></li>
                 <li><a href="#practices" class="nav-link">Practices</a></li>
-                <li><a href="#resources" class="nav-link">Resources</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section with Enhanced Background -->
+   <!-- Hero Section -->
     <section id="hero">
-        <!-- Network Background -->
-        <div class="network-bg">
-            <div class="network-line"></div>
-            <div class="network-line"></div>
-            <div class="network-line"></div>
-            <div class="network-line"></div>
-            <div class="network-line"></div>
-            <div class="network-line"></div>
-            <div class="network-line"></div>
-            <div class="network-line"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-            <div class="network-dot"></div>
-        </div>
-        
-        <div class="peace-bg">
-            <div class="breathing-circle"></div>
-            <div class="breathing-circle"></div>
-            <div class="breathing-circle"></div>
-            <div class="breathing-circle"></div>
-        </div>
-        <div class="floating-elements">
-            <div class="zen-stone"></div>
-            <div class="zen-stone"></div>
-            <div class="zen-stone"></div>
-        </div>
-        <div class="mandala-bg">
-            <div class="mandala-circle"></div>
-            <div class="mandala-circle"></div>
-            <div class="mandala-circle"></div>
-        </div>
         <div class="hero-content">
-            <h1>Автоматично генериране на субтитри
-            \</h1>
-            <p>Journey towards mental wellness through mindfulness, meditation, and self-discovery</p>
-            <a href="#about" class="cta-button">Begin Your Journey</a>
+            <h1>Автоматично генериране на субтитри</h1>
+            <p>Качете вашето видео или аудио и генерирайте субтитри автоматично</p>
+            <a href="#subtitle-tool" class="cta-button">Започнете генериране</a>
+        </div>
+    </section>
+
+    <!-- Subtitle Generator Section - Two Column Layout -->
+    <section id="subtitle-tool">
+        <h2 class="section-title">Генератор на субтитри</h2>
+        <p class="section-subtitle">Качете видео или аудио файл и получете субтитрите веднага</p>
+
+        <div class="contact-container">
+            <div class="contact-wrapper" style="display:flex; flex-wrap:wrap; gap:2rem;">
+
+                <!-- Upload Form -->
+                <div class="contact-form" style="flex:1; min-width:280px;">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Качване на файл</h3>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Изберете видео или аудио</label>
+                            <input type="file" name="media_file" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Генерирай субтитри</button>
+                    </form>
+                </div>
+
+                <!-- Result -->
+                <div class="contact-info" style="flex:1; min-width:280px;">
+                    <h3>Генерирани субтитри</h3>
+                    <div class="form-group">
+                        <textarea rows="15" placeholder="Тук ще се покажат субтитрите...">{{ subtitles }}</textarea>
+                    </div>
+                    <div style="margin-top:1rem; display:flex; gap:1rem; flex-wrap:wrap;">
+                        <a href="#" class="cta-button">Изтегли SRT</a>
+                        <a href="#" class="cta-button">Изтегли TXT</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -301,114 +287,6 @@
                             <a href="#" class="benefit-tag">Mindful Communication</a>
                             <a href="#" class="benefit-tag">Work-Life Balance</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resources Section - Tab Structure -->
-    <section id="resources">
-        <h2 class="section-title">Resources & Tools</h2>
-        <p class="section-subtitle">Everything you need to support your mindfulness practice</p>
-        
-        <div class="resource-tabs">
-            <button class="tab-btn active" onclick="showTab('meditations')">Meditations</button>
-            <button class="tab-btn" onclick="showTab('courses')">Courses</button>
-            <button class="tab-btn" onclick="showTab('tools')">Tools</button>
-        </div>
-
-        <div id="meditations" class="tab-content active">
-            <div class="resource-list">
-                <div class="resource-card">
-                    <div class="resource-image">
-                        <div class="resource-thumbnail morning-meditation"></div>
-                    </div>
-                    <div class="resource-body">
-                        <h3>Morning Meditation</h3>
-                        <p>Start your day with clarity and intention through our 15-minute morning practice.</p>
-                    </div>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-image">
-                        <div class="resource-thumbnail stress-relief"></div>
-                    </div>
-                    <div class="resource-body">
-                        <h3>Stress Relief Session</h3>
-                        <p>Quick 10-minute guided meditation for immediate stress and anxiety relief.</p>
-                    </div>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-image">
-                        <div class="resource-thumbnail sleep-meditation"></div>
-                    </div>
-                    <div class="resource-body">
-                        <h3>Sleep Meditation</h3>
-                        <p>Peaceful bedtime meditation to help you unwind and prepare for restful sleep.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="courses" class="tab-content">
-            <div class="resource-list">
-                <div class="resource-card">
-                    <div class="resource-image">
-                        <div class="resource-thumbnail mbsr-course"></div>
-                    </div>
-                    <div class="resource-body">
-                        <h3>8-Week MBSR Program</h3>
-                        <p>Comprehensive Mindfulness-Based Stress Reduction course with certified instructors.</p>
-                    </div>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-image">
-                        <div class="resource-thumbnail leadership-course"></div>
-                    </div>
-                    <div class="resource-body">
-                        <h3>Mindful Leadership</h3>
-                        <p>Develop presence and emotional intelligence for effective leadership.</p>
-                    </div>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-image">
-                        <div class="resource-thumbnail beginner-course"></div>
-                    </div>
-                    <div class="resource-body">
-                        <h3>Beginner's Journey</h3>
-                        <p>30-day introduction to mindfulness with daily lessons and practices.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="tools" class="tab-content">
-            <div class="resource-list">
-                <div class="resource-card">
-                    <div class="resource-image">
-                        <div class="resource-thumbnail timer-tool"></div>
-                    </div>
-                    <div class="resource-body">
-                        <h3>Meditation Timer</h3>
-                        <p>Customizable timer with ambient sounds and interval bells for your practice.</p>
-                    </div>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-image">
-                        <div class="resource-thumbnail mood-tracker"></div>
-                    </div>
-                    <div class="resource-body">
-                        <h3>Mood Tracker</h3>
-                        <p>Monitor your emotional patterns and see how mindfulness impacts your well-being.</p>
-                    </div>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-image">
-                        <div class="resource-thumbnail breathing-tool"></div>
-                    </div>
-                    <div class="resource-body">
-                        <h3>Breathing Exercises</h3>
-                        <p>Interactive breathing patterns for different situations and energy levels.</p>
                     </div>
                 </div>
             </div>
