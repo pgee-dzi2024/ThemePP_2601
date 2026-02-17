@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор на субтитри</title>
+    <link href="{% static 'tooplate-inner-peace.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="geometric-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#hero" class="logo">
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="14" fill="none" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.7"/>
+                    <circle cx="20" cy="20" r="10" fill="none" stroke="url(#logoGradient)" stroke-width="1" opacity="0.5"/>
+                    <circle cx="20" cy="20" r="6" fill="none" stroke="url(#logoGradient)" stroke-width="0.5" opacity="0.3"/>
+                    <circle cx="20" cy="20" r="3" fill="url(#logoGradient)"/>
+                </svg>
+                <span class="logo-text">Inner Peace</span>
+            </a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Начало</a></li>
+                <li><a href="#subtitle-tool" class="nav-link">Генератор</a></li>
+                <li><a href="#about" class="nav-link">За проекта</a></li>
+                <li><a href="#practices" class="nav-link">Практики</a></li>
+                <li><a href="#resources" class="nav-link">Ресурси</a></li>
+                <li><a href="#contact" class="nav-link">Контакт</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Автоматично генериране на субтитри</h1>
+            <p>Качете вашето видео или аудио и генерирайте субтитри автоматично</p>
+            <a href="#subtitle-tool" class="cta-button">Започнете генериране</a>
+        </div>
+    </section>
+
+    <!-- Subtitle Generator Section - Two Column Layout -->
+    <section id="subtitle-tool">
+        <h2 class="section-title">Генератор на субтитри</h2>
+        <p class="section-subtitle">Качете видео или аудио файл и получете субтитрите веднага</p>
+
+        <div class="contact-container">
+            <div class="contact-wrapper" style="display:flex; flex-wrap:wrap; gap:2rem;">
+
+                <!-- Upload Form -->
+                <div class="contact-form" style="flex:1; min-width:280px;">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Качване на файл</h3>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Изберете видео или аудио</label>
+                            <input type="file" name="media_file" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Генерирай субтитри</button>
+                    </form>
+                </div>
+
+                <!-- Result -->
+                <div class="contact-info" style="flex:1; min-width:280px;">
+                    <h3>Генерирани субтитри</h3>
+                    <div class="form-group">
+                        <textarea rows="15" placeholder="Тук ще се покажат субтитрите...">{{ subtitles }}</textarea>
+                    </div>
+                    <div style="margin-top:1rem; display:flex; gap:1rem; flex-wrap:wrap;">
+                        <a href="#" class="cta-button">Изтегли SRT</a>
+                        <a href="#" class="cta-button">Изтегли TXT</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">За проекта</h2>
+        <p class="section-subtitle">Дипломен проект за автоматично генериране на субтитри</p>
+    </section>
+
+    <!-- Practices Section -->
+    <section id="practices">
+        <div class="practices-container">
+            <h2 class="section-title">Практики</h2>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+        <h2 class="section-title">Ресурси</h2>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Свържете се с нас</h2>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                <p>Дипломен проект на Иван Чобанов &copy; 2026 Банско. Всички права запазени.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'tooplate-inner-peace-scripts.js' %}"></script>
+</body>
+</html>
