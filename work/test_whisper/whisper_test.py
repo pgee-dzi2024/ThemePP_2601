@@ -4,7 +4,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 import whisper
 from pathlib import Path
 
-audio_path = Path(__file__).parent / "audio" / "new.wav"
+audio_path = Path(__file__).parent / "audio" / "example.wav"
 
 print("Loading Whisper large model (CPU)...")
 model = whisper.load_model("large", device="cpu")
