@@ -1,11 +1,14 @@
 from django.urls import path
-from .views import *
+from .views import index
+from .api_views import TranscribeCreateAPIView, TranscribeStatusAPIView
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('', index, name='home'),
+    path('api/transcribe/', TranscribeCreateAPIView.as_view(), name='api-transcribe'),
+    path('api/transcribe/<str:task_id>/', TranscribeStatusAPIView.as_view(), name='api-transcribe-status'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
